@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form creation</title>
+  <link rel="stylesheet" type="text/css" href="code.css">
+  <style>
+    form 
+    {
+      border: 1px solid black;
+      padding: 20px;
+      width: 400px;
+      margin: auto;
+      
+    }
+    button {
+      position: relative;
+      animation: moveButton 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveButton {
+      from { left: 0; }
+      to { left: 300px; }
+    }
+    p{
+      text-align: center;
+      background: #000;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <link rel="stylesheet" href="style.css">
+  <form onsubmit="return false;">
+    <h1>Connect With us..</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="email">Country Name:</label>
+    <input type="text" id="contry name" name="country name" required>
+    <br>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <br>
+    <button type="submit" id="submit" disabl>Submit</button>
+  </form>
+  
+  <script>
+    const form = document.querySelector('form');
+    const button = document.querySelector('#submit');
+
+    form.addEventListener('input', () => {
+      if (form.checkValidity()) {
+        button.style.animation = 'none';
+        button.disabled = false;
+      } else {
+        button.style.animation = 'moveButton 1s ease-in-out infinite alternate';
+        button.disabled = true;
+      }
+    });
+  </script>
+<footer>
+  <p>&copy;2024 Design by Ashok chaulagain.</p>
+</footer>
+</body>
+</html>
